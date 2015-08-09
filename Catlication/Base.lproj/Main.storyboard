@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8Cx-Pd-zTn">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Cat Table View Controller-->
+        <scene sceneID="9HL-Dy-0s0">
+            <objects>
+                <tableViewController id="8Cx-Pd-zTn" customClass="CatTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" id="CpS-SU-n59">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="cellForCat" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellForCat" id="rfI-vX-VlG" customClass="CatTableViewCell">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rfI-vX-VlG" id="1Xn-D2-ylV">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d3P-OU-eDq">
+                                            <rect key="frame" x="8" y="5" width="77" height="70"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eUO-kl-p1B">
+                                            <rect key="frame" x="93" y="8" width="223" height="64"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="223" id="Ai5-zn-Zw3"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="d3P-OU-eDq" secondAttribute="bottom" constant="-3.5" id="4Qv-JG-R8b"/>
+                                        <constraint firstItem="d3P-OU-eDq" firstAttribute="leading" secondItem="1Xn-D2-ylV" secondAttribute="leadingMargin" id="4oU-VR-MnY"/>
+                                        <constraint firstItem="eUO-kl-p1B" firstAttribute="top" secondItem="1Xn-D2-ylV" secondAttribute="topMargin" id="8aT-5Q-Uip"/>
+                                        <constraint firstItem="d3P-OU-eDq" firstAttribute="top" secondItem="1Xn-D2-ylV" secondAttribute="topMargin" constant="-3" id="Ft9-j5-xSZ"/>
+                                        <constraint firstItem="eUO-kl-p1B" firstAttribute="leading" secondItem="1Xn-D2-ylV" secondAttribute="leading" constant="93" id="Vrp-XO-QfZ"/>
+                                        <constraint firstItem="eUO-kl-p1B" firstAttribute="leading" secondItem="d3P-OU-eDq" secondAttribute="trailing" constant="8" symbolic="YES" id="anD-0c-IJW"/>
+                                        <constraint firstItem="eUO-kl-p1B" firstAttribute="centerY" secondItem="d3P-OU-eDq" secondAttribute="centerY" id="t3S-rm-AMB"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="catName" destination="eUO-kl-p1B" id="Y8v-gv-kfo"/>
+                                    <outlet property="catPic" destination="d3P-OU-eDq" id="AYa-8P-Mmt"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="8Cx-Pd-zTn" id="ZcX-4j-VXb"/>
+                            <outlet property="delegate" destination="8Cx-Pd-zTn" id="FIF-uI-kcq"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NcB-BI-cMc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>

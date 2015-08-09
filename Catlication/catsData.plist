@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>catImgName</key>
+		<string>amazed_meme_cat.png</string>
+		<key>catName</key>
+		<string>Amazed Memetic Cat</string>
+	</dict>
+	<dict>
+		<key>catImgName</key>
+		<string>crying_cat.jpeg</string>
+		<key>catName</key>
+		<string>Cat Who Saw This App&apos;s Source Code</string>
+	</dict>
+	<dict>
+		<key>catImgName</key>
+		<string>amazed_cat.jpeg</string>
+		<key>catName</key>
+		<string>Amazed Cat</string>
+	</dict>
+	<dict>
+		<key>catImgName</key>
+		<string>did_u_know_cat.jpg</string>
+		<key>catName</key>
+		<string>Ignorant Cat</string>
+	</dict>
+	<dict>
+		<key>catImgName</key>
+		<string>scientisc_cat.jpg</string>
+		<key>catName</key>
+		<string>Nerd Cat</string>
+	</dict>
+	<dict>
+		<key>catImgName</key>
+		<string>serious_cat.jpg</string>
+		<key>catName</key>
+		<string>Cat Who Has Something To Tell</string>
+	</dict>
+	<dict>
+		<key>catImgName</key>
+		<string>stunned_cat.jpg</string>
+		<key>catName</key>
+		<string>Stunned Cat</string>
+	</dict>
+	<dict>
+		<key>catImgName</key>
+		<string>surprized_cat.jpg</string>
+		<key>catName</key>
+		<string>Surprized Cat</string>
+	</dict>
+	<dict>
+		<key>catImgName</key>
+		<string>zerocat.jpg</string>
+		<key>catName</key>
+		<string>Grumpy Cat</string>
+	</dict>
+	<dict>
+		<key>catImgName</key>
+		<string>QAcat.jpg</string>
+		<key>catName</key>
+		<string>QAcat</string>
+	</dict>
+</array>
+</plist>
