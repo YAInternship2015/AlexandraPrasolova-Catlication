@@ -10,6 +10,7 @@
 
 @implementation CatTableViewCell
 
+#warning пустые методы - удаляйте их
 - (void)awakeFromNib {
     // Initialization code
 }

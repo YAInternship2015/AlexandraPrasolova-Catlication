@@ -11,6 +11,8 @@
 
 @interface CatTableViewController ()
 
+#warning В требованиях к заданию я писал, что нужно создать класс-модель, которая бы хранила в себе картинку и текст. В этом классе-датасорсе внутри (в *.m) был бы один массив моделей, а не массив словарей. Также, в *.h файле необходимо показать минимальный интерфейс, который нужен вью контроллеру для работы, то есть нужен метод, который бы возвращал общее количество моделей, и метод, который бы возвращал модель по индексу (для ячейки). И все, сам массив моделей же показывать не стоит. А вью контролер хранит только ссылку на датасорс
+
 @property (nonatomic,strong) NSArray *catsArray; //data model - array of dictionaries, one dictionary - data for one cat
 
 @end
@@ -20,11 +22,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+#warning эти методы как раз должны быть инкапсулированы в объекте-датасорсе, о чем я писал в своих общих замечаниях. Не нужно все лепить во вью контроллер
+    
     NSBundle *thisApp = [NSBundle mainBundle];
     NSString *pathToCats = [thisApp pathForResource:@"catsData" ofType:@"plist"]; //path to data source
     _catsArray = [NSArray arrayWithContentsOfFile:pathToCats]; //instantiate array from this path
 }
 
+#warning по сути пусой метод - надо удалять
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -48,6 +53,8 @@
     
     NSDictionary *particularCat = _catsArray[indexPath.item]; //data for one cat
    //now put cats data into the cell's views:
+    
+#warning заполнение ячейки данными надо инкапсулировать в самой ячейке
     catsCell.catName.text = particularCat [@"catName"];
     catsCell.catPic.image = [UIImage imageNamed:particularCat[@"catImgName"]];
     
