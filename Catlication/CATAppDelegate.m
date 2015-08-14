@@ -1,18 +1,11 @@
-//
-//  AppDelegate.m
-//  Catlication
-//
-//  Created by Alexandra Prasolova on 8/8/15.
-//  Copyright (c) 2015 Alexandra Prasolova. All rights reserved.
-//
 
-#import "CatlicationAppDelegate.h"
+#import "CATAppDelegate.h"
 
-@interface CatlicationAppDelegate ()
+@interface CATAppDelegate ()
 
 @end
 
-@implementation CatlicationAppDelegate
+@implementation CATAppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {

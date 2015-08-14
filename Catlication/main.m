@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CatlicationAppDelegate.h"
+#import "CATAppDelegate.h"
 
 int main(int argc, char * argv[]) {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([CatlicationAppDelegate class]));
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([CATAppDelegate class]));
     }
 }

@@ -1,25 +1,20 @@
-//
-//  CatTableViewCell.m
-//  Catlication
-//
-//  Created by Alexandra Prasolova on 8/8/15.
-//  Copyright (c) 2015 Alexandra Prasolova. All rights reserved.
-//
 
-#import "CatTableViewCell.h"
+#import "CATTableViewCell.h"
 
-@implementation CatTableViewCell
+@interface CATTableViewCell ()
 
-#warning пустые методы - удаляйте их
-- (void)awakeFromNib {
-    // Initialization code
-}
+@property (nonatomic, strong) IBOutlet UILabel *catName;
+@property (nonatomic, strong) IBOutlet UIImageView *catPic;
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+@end
 
-    // Configure the view for the selected state
-    
+@implementation CATTableViewCell
+
+- (void)setUpWithModel:(CATOneCatData *)source {
+        if (self) {
+        self.catName.text = source.catName;
+        self.catPic.image = [UIImage imageNamed:source.catPic];
+    }
 }
 
 @end

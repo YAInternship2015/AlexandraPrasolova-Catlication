@@ -5,16 +5,16 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Cat Table View Controller-->
+        <!--Table View Controller-->
         <scene sceneID="9HL-Dy-0s0">
             <objects>
-                <tableViewController id="8Cx-Pd-zTn" customClass="CatTableViewController" sceneMemberID="viewController">
+                <tableViewController id="8Cx-Pd-zTn" customClass="CATTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" id="CpS-SU-n59">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="cellForCat" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellForCat" id="rfI-vX-VlG" customClass="CatTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="cellForCat" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellForCat" id="rfI-vX-VlG" customClass="CATTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rfI-vX-VlG" id="1Xn-D2-ylV">
                                     <autoresizingMask key="autoresizingMask"/>
