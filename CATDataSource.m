@@ -18,18 +18,22 @@
 @implementation CATDataSource
 
 - (CATOneCatData *)catAtIndex:(int)i {
+#warning при выполнении условия [self.catsArray count] == i приложение упадет. Так что условие в if неверное
     if (self.catsArray && ([self.catsArray count] >= i) ){
         return [self.catsArray objectAtIndex:i];}
+#warning слово else здесь писать необязательно. Если сработает if, то выполнение до данной строки не дойдет
     else return nil;
 }
 
 - (int) catsNumber{
     if (self.catsArray) {
+#warning можно смело возвращать [self.catsArray count] всегда, даже если массив nil, nil умеет отвечать на любые сообщения, возвращая также nil.
         return [self.catsArray count];
     }
     else return 0;
 }
 
+#warning инициализаторы должны идти первыми (после методов класса, которые +) в блоке имплементации класса. А вообще стремный инициализатор. Нужен ли он вообще?
 - (instancetype)init {
     NSLog(@"better use initFromFile: ofType: to create an instance of CATDataSource..." );
     self = [self initFromFile:@"" ofType:@""];
@@ -38,6 +42,7 @@
 
 - (instancetype)initFromFile:(NSString *)fileName ofType: (NSString *)fileType { //DESIGNATED
     self = [super init];
+#warning лучше проверить if (self) и в этом блоке уже провести инициализацию. + всю логику заполнения массива я бы вынес в отдельный метод в этом же классе, вроде loadCatsData
     if (!self) {
         return nil;
     }

@@ -18,7 +18,6 @@
 		A88EB1AC1B767189009AB783 /* catsData.plist in Resources */ = {isa = PBXBuildFile; fileRef = A88EB1AB1B767189009AB783 /* catsData.plist */; };
 		A88EB1B41B78B3CC009AB783 /* CATDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EB1B31B78B3CC009AB783 /* CATDataSource.m */; };
 		A88EB1B81B78C8BA009AB783 /* CATOneCatData.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EB1B71B78C8BA009AB783 /* CATOneCatData.m */; };
-		A88EB1C21B7D1B19009AB783 /* about.txt in Resources */ = {isa = PBXBuildFile; fileRef = A88EB1C11B7D1B19009AB783 /* about.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +51,6 @@
 		A88EB1B31B78B3CC009AB783 /* CATDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CATDataSource.m; sourceTree = "<group>"; };
 		A88EB1B61B78C8BA009AB783 /* CATOneCatData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CATOneCatData.h; sourceTree = "<group>"; };
 		A88EB1B71B78C8BA009AB783 /* CATOneCatData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CATOneCatData.m; sourceTree = "<group>"; };
-		A88EB1C11B7D1B19009AB783 /* about.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = about.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +101,6 @@
 				A88EB18E1B7621BB009AB783 /* LaunchScreen.xib */,
 				A88EB18C1B7621BB009AB783 /* Images.xcassets */,
 				A88EB17F1B7621BB009AB783 /* Supporting Files */,
-				A88EB1C11B7D1B19009AB783 /* about.txt */,
 			);
 			path = Catlication;
 			sourceTree = "<group>";
@@ -255,7 +252,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A88EB1C21B7D1B19009AB783 /* about.txt in Resources */,
 				A88EB18B1B7621BB009AB783 /* Main.storyboard in Resources */,
 				A88EB1AC1B767189009AB783 /* catsData.plist in Resources */,
 				A88EB1901B7621BB009AB783 /* LaunchScreen.xib in Resources */,

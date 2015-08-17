@@ -5,6 +5,7 @@
 
 @interface CATTableViewController ()
 
+#warning catsDataSource звучит лучше и передает природу объекта
 @property (nonatomic) CATDataSource *allCatsData;
 
 @end
@@ -13,6 +14,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+#warning неправильное форматирование. [[CATDataSource alloc] initFromFile:@"catsData" ofType:@"plist"];
     self.allCatsData = [[CATDataSource alloc]initFromFile:@"catsData"ofType:@"plist"]; //set up model
 }
 
@@ -28,6 +30,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CATTableViewCell *catsCell = [tableView dequeueReusableCellWithIdentifier:@"cellForCat" forIndexPath:indexPath];
+#warning здесь надо использовать indexPath.row как индекс объекта
     [catsCell setUpWithModel:[self.allCatsData catAtIndex:indexPath.item]];
     return catsCell;
 }
