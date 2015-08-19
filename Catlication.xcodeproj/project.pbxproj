@@ -13,8 +13,8 @@
 		A88EB18D1B7621BB009AB783 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A88EB18C1B7621BB009AB783 /* Images.xcassets */; };
 		A88EB1901B7621BB009AB783 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A88EB18E1B7621BB009AB783 /* LaunchScreen.xib */; };
 		A88EB19C1B7621BB009AB783 /* CatlicationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EB19B1B7621BB009AB783 /* CatlicationTests.m */; };
-		A88EB1A71B762528009AB783 /* CATTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EB1A61B762528009AB783 /* CATTableViewController.m */; };
-		A88EB1AA1B7625A7009AB783 /* CATTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EB1A91B7625A7009AB783 /* CATTableViewCell.m */; };
+		A88EB1A71B762528009AB783 /* CatTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EB1A61B762528009AB783 /* CatTableViewController.m */; };
+		A88EB1AA1B7625A7009AB783 /* CatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EB1A91B7625A7009AB783 /* CatTableViewCell.m */; };
 		A88EB1AC1B767189009AB783 /* catsData.plist in Resources */ = {isa = PBXBuildFile; fileRef = A88EB1AB1B767189009AB783 /* catsData.plist */; };
 		A88EB1B41B78B3CC009AB783 /* CATDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EB1B31B78B3CC009AB783 /* CATDataSource.m */; };
 		A88EB1B81B78C8BA009AB783 /* CATOneCatData.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EB1B71B78C8BA009AB783 /* CATOneCatData.m */; };
@@ -42,15 +42,15 @@
 		A88EB1951B7621BB009AB783 /* CatlicationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CatlicationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A88EB19A1B7621BB009AB783 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A88EB19B1B7621BB009AB783 /* CatlicationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CatlicationTests.m; sourceTree = "<group>"; };
-		A88EB1A51B762528009AB783 /* CATTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATTableViewController.h; path = Catlication/CATTableViewController.h; sourceTree = "<group>"; };
-		A88EB1A61B762528009AB783 /* CATTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CATTableViewController.m; path = Catlication/CATTableViewController.m; sourceTree = "<group>"; };
-		A88EB1A81B7625A7009AB783 /* CATTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATTableViewCell.h; path = Catlication/CATTableViewCell.h; sourceTree = "<group>"; };
-		A88EB1A91B7625A7009AB783 /* CATTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CATTableViewCell.m; path = Catlication/CATTableViewCell.m; sourceTree = "<group>"; };
-		A88EB1AB1B767189009AB783 /* catsData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = catsData.plist; path = Catlication/catsData.plist; sourceTree = "<group>"; };
-		A88EB1B21B78B3CC009AB783 /* CATDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CATDataSource.h; sourceTree = "<group>"; };
-		A88EB1B31B78B3CC009AB783 /* CATDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CATDataSource.m; sourceTree = "<group>"; };
-		A88EB1B61B78C8BA009AB783 /* CATOneCatData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CATOneCatData.h; sourceTree = "<group>"; };
-		A88EB1B71B78C8BA009AB783 /* CATOneCatData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CATOneCatData.m; sourceTree = "<group>"; };
+		A88EB1A51B762528009AB783 /* CatTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CatTableViewController.h; path = Catlication/Controllers/CatTableViewController.h; sourceTree = "<group>"; };
+		A88EB1A61B762528009AB783 /* CatTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CatTableViewController.m; path = Catlication/Controllers/CatTableViewController.m; sourceTree = "<group>"; };
+		A88EB1A81B7625A7009AB783 /* CatTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CatTableViewCell.h; path = "Catlication/Views/table view cells/CatTableViewCell.h"; sourceTree = "<group>"; };
+		A88EB1A91B7625A7009AB783 /* CatTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CatTableViewCell.m; path = "Catlication/Views/table view cells/CatTableViewCell.m"; sourceTree = "<group>"; };
+		A88EB1AB1B767189009AB783 /* catsData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = catsData.plist; path = /Users/Alexandra/Documents/xcode/yalantis/Catlication/Catlication/Model/catsData.plist; sourceTree = "<absolute>"; };
+		A88EB1B21B78B3CC009AB783 /* CATDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATDataSource.h; path = Catlication/Model/CATDataSource.h; sourceTree = "<group>"; };
+		A88EB1B31B78B3CC009AB783 /* CATDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CATDataSource.m; path = Catlication/Model/CATDataSource.m; sourceTree = "<group>"; };
+		A88EB1B61B78C8BA009AB783 /* CATOneCatData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATOneCatData.h; path = Catlication/Model/CATOneCatData.h; sourceTree = "<group>"; };
+		A88EB1B71B78C8BA009AB783 /* CATOneCatData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CATOneCatData.m; path = Catlication/Model/CATOneCatData.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,8 +134,8 @@
 		A88EB1AD1B768201009AB783 /* table cells */ = {
 			isa = PBXGroup;
 			children = (
-				A88EB1A81B7625A7009AB783 /* CATTableViewCell.h */,
-				A88EB1A91B7625A7009AB783 /* CATTableViewCell.m */,
+				A88EB1A81B7625A7009AB783 /* CatTableViewCell.h */,
+				A88EB1A91B7625A7009AB783 /* CatTableViewCell.m */,
 			);
 			name = "table cells";
 			sourceTree = "<group>";
@@ -156,8 +156,8 @@
 		A88EB1B51B78B6B0009AB783 /* CATControllers */ = {
 			isa = PBXGroup;
 			children = (
-				A88EB1A51B762528009AB783 /* CATTableViewController.h */,
-				A88EB1A61B762528009AB783 /* CATTableViewController.m */,
+				A88EB1A51B762528009AB783 /* CatTableViewController.h */,
+				A88EB1A61B762528009AB783 /* CatTableViewController.m */,
 			);
 			name = CATControllers;
 			path = ..;
@@ -273,8 +273,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A88EB1AA1B7625A7009AB783 /* CATTableViewCell.m in Sources */,
-				A88EB1A71B762528009AB783 /* CATTableViewController.m in Sources */,
+				A88EB1AA1B7625A7009AB783 /* CatTableViewCell.m in Sources */,
+				A88EB1A71B762528009AB783 /* CatTableViewController.m in Sources */,
 				A88EB1851B7621BB009AB783 /* CATAppDelegate.m in Sources */,
 				A88EB1B41B78B3CC009AB783 /* CATDataSource.m in Sources */,
 				A88EB1B81B78C8BA009AB783 /* CATOneCatData.m in Sources */,

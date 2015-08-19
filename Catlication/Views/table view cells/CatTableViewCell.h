@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CATOneCatData.h"
 
-@interface CATAppDelegate : UIResponder <UIApplicationDelegate>
+@interface CATTableViewCell : UITableViewCell
 
-@property (nonatomic, strong) UIWindow *window;
+- (void) setUpWithModel:(CATOneCatData *)catData;
 
 @end
-

@@ -1,3 +1,10 @@
+//
+//  CATDataSource.m
+//  Catlication
+//
+//  Created by Alexandra Prasolova on 8/10/15.
+//  Copyright (c) 2015 Alexandra Prasolova. All rights reserved.
+//
 
 #import "CATTableViewController.h"
 #import "CatTableViewCell.h"
@@ -5,8 +12,7 @@
 
 @interface CATTableViewController ()
 
-#warning catsDataSource звучит лучше и передает природу объекта
-@property (nonatomic) CATDataSource *allCatsData;
+@property (nonatomic) CATDataSource * catsDataSource;
 
 @end
 
@@ -14,8 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-#warning неправильное форматирование. [[CATDataSource alloc] initFromFile:@"catsData" ofType:@"plist"];
-    self.allCatsData = [[CATDataSource alloc]initFromFile:@"catsData"ofType:@"plist"]; //set up model
+    self.catsDataSource = [[CATDataSource alloc] initFromFile:@"catsData" ofType:@"plist"]; //set up model
 }
 
 #pragma mark - Table view
@@ -25,13 +30,12 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.allCatsData catsNumber]; //number of rows equals number of cats in data array
+    return [self.catsDataSource numberOfCats]; 
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CATTableViewCell *catsCell = [tableView dequeueReusableCellWithIdentifier:@"cellForCat" forIndexPath:indexPath];
-#warning здесь надо использовать indexPath.row как индекс объекта
-    [catsCell setUpWithModel:[self.allCatsData catAtIndex:indexPath.item]];
+    [catsCell setUpWithModel:[self.catsDataSource catAtIndex:indexPath.row]];
     return catsCell;
 }
 

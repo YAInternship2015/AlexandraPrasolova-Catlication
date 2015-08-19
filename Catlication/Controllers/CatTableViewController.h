@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CATAppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (nonatomic, strong) UIWindow *window;
+@interface CATTableViewController : UITableViewController
 
 @end
-
