@@ -11,6 +11,7 @@
 
 @interface CATTableViewCell : UITableViewCell
 
+#warning немного не то форматирование: - (void)setUpWithModel:(CATOneCatData *)catData;
 - (void) setUpWithModel:(CATOneCatData *)catData;
 
 @end

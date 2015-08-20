@@ -38,6 +38,20 @@
         NSLog(@"catAtIndex:%d - wrong index for catsArray or no array at all",i);
         return nil;
     }
+#warning я имел ввиду вот такое написание.
+//    if (self.catsArray && ([self.catsArray count] > i) ){
+//        return [self.catsArray objectAtIndex:i];
+//    }
+//    return nil;
+#warning Хотя последнее время встречаю все больше противников множественных return в одном методе, по их мнению правильнее так
+//    CATOneCatData *catData;
+//    if (self.catsArray && ([self.catsArray count] > i) ){
+//        catData = [self.catsArray objectAtIndex:i];
+//    }
+//    return catData;
+    
+    
+    
 }
 
 - (NSUInteger)numberOfCats{
@@ -45,15 +59,17 @@
 }
 
 - (BOOL)loadCatsDataFromFile:(NSString *)pathToCatsData {
-    
+#warning здесь не нужна пустая строка
     NSArray *rawCatsData = [NSArray arrayWithContentsOfFile:pathToCatsData];
     if (rawCatsData) {
         self.catsArray = [NSMutableArray array];
         for (NSDictionary *cat in rawCatsData) {
+#warning в следующей строке перед init должен быть пробел. А вообще лучше эту строку разбить на две. В первой создавать обхект и второй его добавлять в массив. Иначе многовато скобок выходит
             [self.catsArray addObject:[[CATOneCatData alloc]initWithDictionary:cat]];
         }
         return YES;
     }
+#warning тут снова не нужен else :D
     else return NO;
 }
 @end

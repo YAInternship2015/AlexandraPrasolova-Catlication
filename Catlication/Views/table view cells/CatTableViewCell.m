@@ -18,6 +18,7 @@
 @implementation CATTableViewCell
 
 - (void)setUpWithModel:(CATOneCatData *)catData {
+#warning эта проверка не нужна, self здесь будет всегда. Даже если вдруг какой-то объект nil, посылая ему сообщение приложение не упадет. nil может отвечать на любой селектор, и возвращать из селектора будет тоже nil
     if (self) {
         self.catName.text = catData.catName;
         self.catPic.image = [UIImage imageNamed:catData.catPic];
