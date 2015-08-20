@@ -12,8 +12,7 @@
 
 @interface CATTableViewController ()
 
-#warning: @property (nonatomic, strong) CATDataSource *catsDataSource;
-@property (nonatomic) CATDataSource * catsDataSource;
+@property (nonatomic,strong) CATDataSource *catsDataSource;
 
 @end
 

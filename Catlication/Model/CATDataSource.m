@@ -32,26 +32,10 @@
 
 - (CATOneCatData *)catAtIndex:(NSUInteger)i {
     if (self.catsArray && ([self.catsArray count] > i) ){
-        return [self.catsArray objectAtIndex:i];}
-#warning слово else здесь писать необязательно. Если сработает if, то выполнение до данной строки не дойдет -- а если я когда-нибудь такого понапишу, что все-таки if не сработает? И еще: без ветки else не компилится т.к. control may reach end of non-void function, а убрать проверку совсем - страшно =)
-    else {
-        NSLog(@"catAtIndex:%d - wrong index for catsArray or no array at all",i);
-        return nil;
+        return [self.catsArray objectAtIndex:i];
     }
-#warning я имел ввиду вот такое написание.
-//    if (self.catsArray && ([self.catsArray count] > i) ){
-//        return [self.catsArray objectAtIndex:i];
-//    }
-//    return nil;
-#warning Хотя последнее время встречаю все больше противников множественных return в одном методе, по их мнению правильнее так
-//    CATOneCatData *catData;
-//    if (self.catsArray && ([self.catsArray count] > i) ){
-//        catData = [self.catsArray objectAtIndex:i];
-//    }
-//    return catData;
-    
-    
-    
+    NSLog(@"catAtIndex:%d - wrong index for catsArray or no array at all",i);
+    return nil;
 }
 
 - (NSUInteger)numberOfCats{
@@ -59,17 +43,15 @@
 }
 
 - (BOOL)loadCatsDataFromFile:(NSString *)pathToCatsData {
-#warning здесь не нужна пустая строка
     NSArray *rawCatsData = [NSArray arrayWithContentsOfFile:pathToCatsData];
     if (rawCatsData) {
         self.catsArray = [NSMutableArray array];
         for (NSDictionary *cat in rawCatsData) {
-#warning в следующей строке перед init должен быть пробел. А вообще лучше эту строку разбить на две. В первой создавать обхект и второй его добавлять в массив. Иначе многовато скобок выходит
-            [self.catsArray addObject:[[CATOneCatData alloc]initWithDictionary:cat]];
+            CATOneCatData *oneCatData = [[CATOneCatData alloc] initWithDictionary:cat];
+            [self.catsArray addObject:oneCatData];
         }
         return YES;
     }
-#warning тут снова не нужен else :D
-    else return NO;
+    return NO;
 }
 @end

@@ -12,8 +12,7 @@
 @interface CATDataSource : NSObject
 
 - (instancetype)initFromFile:(NSString *)fileName ofType:(NSString *)fileType; //DESIGNATED
-#warning: - (CATOneCatData *)catAtIndex:(NSUInteger)i;
-- (CATOneCatData *) catAtIndex: (NSUInteger) i;
+- (CATOneCatData *)catAtIndex:(NSUInteger)i;
 - (NSUInteger)numberOfCats;
 
 @end
