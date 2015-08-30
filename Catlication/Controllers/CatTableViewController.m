@@ -8,19 +8,28 @@
 
 #import "CATTableViewController.h"
 #import "CatTableViewCell.h"
-#import "CATDataSource.h"
+#import "CATAddCatController.h"
 
 @interface CATTableViewController ()
 
-@property (nonatomic,strong) CATDataSource *catsDataSource;
+@property (nonatomic, strong) CATDataSource *catsDataSource;
+@property (nonatomic, strong) NSMutableArray *selectedCats; //array of indexPathes for selected cats
+@property (nonatomic, strong) UIStoryboard *myStoryboard;
 
 @end
 
 @implementation CATTableViewController
 
+- (instancetype) initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    self.myStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.catsDataSource = [[CATDataSource alloc] initFromFile:@"catsData" ofType:@"plist"]; //set up model
+    self.catsDataSource = [[CATDataSource alloc] initFromFile:@"catsData" ofType:@"plist" withDelegate:self]; //set up model
+    self.selectedCats = [NSMutableArray array]; //no cats are selected yet
 }
 
 #pragma mark - Table view
@@ -34,9 +43,54 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CATTableViewCell *catsCell = [tableView dequeueReusableCellWithIdentifier:@"cellForCat" forIndexPath:indexPath];
-    [catsCell setUpWithModel:[self.catsDataSource catAtIndex:indexPath.row]];
-    return catsCell;
+    CATTableViewCell *catCell = [tableView dequeueReusableCellWithIdentifier:@"cellForCat" forIndexPath:indexPath];
+    [catCell setUpWithModel:[self.catsDataSource catAtIndex:indexPath.row]];
+    return catCell;
+}
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemTrash
+                                                                                          target:self
+                                                                                          action:@selector(trashPressed)];
+    [self.selectedCats addObject:indexPath];
+}
+
+- (void) tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self.selectedCats removeObject:indexPath]; //cat was deselected, remove it from array of selected cats
+    if ([self.selectedCats count] < 1) {        //all selected cats were deselected
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addPressed)];
+    }
+}
+
+- (void) catsDataWasChanged {
+    if ([self.catsDataSource reloadCatsData]) {
+        [self.tableView reloadData];
+    };
+}
+
+#pragma mark - Navigation
+
+- (IBAction)unwindToTableViewController:(UIStoryboardSegue *)segue {
+    CATAddCatController *sourceViewContr = [segue sourceViewController];
+    CATOneCatData *newCat = sourceViewContr.catEntry;
+    if (newCat) {
+        [self.catsDataSource saveCat:newCat];
+    }
+}
+
+#pragma mark - Buttons
+
+- (void)addPressed { 
+    CATAddCatController *addCatController = [self.myStoryboard instantiateViewControllerWithIdentifier:@"addCatController"];
+    [self.navigationController pushViewController:addCatController animated:YES ];
+}
+
+- (void)trashPressed {                      //delete all selected cats
+    [self.catsDataSource deleteCatsAtIndexes:self.selectedCats];
+    [self.selectedCats removeAllObjects];   //all selected cats were deleted, no cats are selected now
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                                                          target:self
+                                                                                          action:@selector(addPressed)];
 }
 
 @end

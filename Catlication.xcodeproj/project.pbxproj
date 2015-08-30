@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A8605C481B889AD400B4192C /* CATCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8605C471B889AD400B4192C /* CATCollectionViewController.m */; };
+		A8605C4F1B89DB7A00B4192C /* CATAddCatController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8605C4E1B89DB7A00B4192C /* CATAddCatController.m */; };
+		A8605C511B8B701A00B4192C /* catsData.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8605C501B8B701A00B4192C /* catsData.plist */; };
+		A86575E91B935C11002FAD41 /* CATNameValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = A86575E81B935C11002FAD41 /* CATNameValidator.m */; };
+		A86575EC1B935C23002FAD41 /* CATCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A86575EB1B935C23002FAD41 /* CATCollectionViewCell.m */; };
 		A88EB1821B7621BB009AB783 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EB1811B7621BB009AB783 /* main.m */; };
 		A88EB1851B7621BB009AB783 /* CATAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EB1841B7621BB009AB783 /* CATAppDelegate.m */; };
 		A88EB18B1B7621BB009AB783 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A88EB1891B7621BB009AB783 /* Main.storyboard */; };
@@ -30,6 +35,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A8605C461B889AD400B4192C /* CATCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATCollectionViewController.h; path = Catlication/Controllers/CATCollectionViewController.h; sourceTree = "<group>"; };
+		A8605C471B889AD400B4192C /* CATCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CATCollectionViewController.m; path = Catlication/Controllers/CATCollectionViewController.m; sourceTree = "<group>"; };
+		A8605C4D1B89DB7A00B4192C /* CATAddCatController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATAddCatController.h; path = Catlication/Controllers/CATAddCatController.h; sourceTree = "<group>"; };
+		A8605C4E1B89DB7A00B4192C /* CATAddCatController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CATAddCatController.m; path = Catlication/Controllers/CATAddCatController.m; sourceTree = "<group>"; };
+		A8605C501B8B701A00B4192C /* catsData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = catsData.plist; path = Catlication/Model/catsData.plist; sourceTree = "<group>"; };
+		A86575E71B935C11002FAD41 /* CATNameValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATNameValidator.h; path = validation/CATNameValidator.h; sourceTree = "<group>"; };
+		A86575E81B935C11002FAD41 /* CATNameValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CATNameValidator.m; path = validation/CATNameValidator.m; sourceTree = "<group>"; };
+		A86575EA1B935C23002FAD41 /* CATCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATCollectionViewCell.h; path = "Catlication/Views/collection view cell/CATCollectionViewCell.h"; sourceTree = "<group>"; };
+		A86575EB1B935C23002FAD41 /* CATCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CATCollectionViewCell.m; path = "Catlication/Views/collection view cell/CATCollectionViewCell.m"; sourceTree = "<group>"; };
 		A88EB17C1B7621BB009AB783 /* Catlication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Catlication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A88EB1801B7621BB009AB783 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A88EB1811B7621BB009AB783 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -69,6 +83,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A8605C4C1B889BFD00B4192C /* collection cells */ = {
+			isa = PBXGroup;
+			children = (
+				A86575EA1B935C23002FAD41 /* CATCollectionViewCell.h */,
+				A86575EB1B935C23002FAD41 /* CATCollectionViewCell.m */,
+			);
+			name = "collection cells";
+			sourceTree = "<group>";
+		};
+		A86575E61B935BFE002FAD41 /* validation */ = {
+			isa = PBXGroup;
+			children = (
+				A86575E71B935C11002FAD41 /* CATNameValidator.h */,
+				A86575E81B935C11002FAD41 /* CATNameValidator.m */,
+			);
+			name = validation;
+			sourceTree = "<group>";
+		};
 		A88EB1731B7621BB009AB783 = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +130,7 @@
 				A88EB1891B7621BB009AB783 /* Main.storyboard */,
 				A88EB18E1B7621BB009AB783 /* LaunchScreen.xib */,
 				A88EB18C1B7621BB009AB783 /* Images.xcassets */,
+				A86575E61B935BFE002FAD41 /* validation */,
 				A88EB17F1B7621BB009AB783 /* Supporting Files */,
 			);
 			path = Catlication;
@@ -145,6 +178,7 @@
 				A88EB1B31B78B3CC009AB783 /* CATDataSource.m */,
 				A88EB1B61B78C8BA009AB783 /* CATOneCatData.h */,
 				A88EB1B71B78C8BA009AB783 /* CATOneCatData.m */,
+				A8605C501B8B701A00B4192C /* catsData.plist */,
 			);
 			name = CATModel;
 			path = ..;
@@ -155,6 +189,10 @@
 			children = (
 				A88EB1A51B762528009AB783 /* CatTableViewController.h */,
 				A88EB1A61B762528009AB783 /* CatTableViewController.m */,
+				A8605C461B889AD400B4192C /* CATCollectionViewController.h */,
+				A8605C471B889AD400B4192C /* CATCollectionViewController.m */,
+				A8605C4D1B89DB7A00B4192C /* CATAddCatController.h */,
+				A8605C4E1B89DB7A00B4192C /* CATAddCatController.m */,
 			);
 			name = CATControllers;
 			path = ..;
@@ -163,6 +201,7 @@
 		A88EB1C01B7BBB1B009AB783 /* CATViews */ = {
 			isa = PBXGroup;
 			children = (
+				A8605C4C1B889BFD00B4192C /* collection cells */,
 				A88EB1AD1B768201009AB783 /* table cells */,
 			);
 			name = CATViews;
@@ -250,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A88EB18B1B7621BB009AB783 /* Main.storyboard in Resources */,
+				A8605C511B8B701A00B4192C /* catsData.plist in Resources */,
 				A88EB1901B7621BB009AB783 /* LaunchScreen.xib in Resources */,
 				A88EB18D1B7621BB009AB783 /* Images.xcassets in Resources */,
 			);
@@ -270,11 +310,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				A88EB1AA1B7625A7009AB783 /* CatTableViewCell.m in Sources */,
+				A8605C481B889AD400B4192C /* CATCollectionViewController.m in Sources */,
 				A88EB1A71B762528009AB783 /* CatTableViewController.m in Sources */,
+				A8605C4F1B89DB7A00B4192C /* CATAddCatController.m in Sources */,
 				A88EB1851B7621BB009AB783 /* CATAppDelegate.m in Sources */,
 				A88EB1B41B78B3CC009AB783 /* CATDataSource.m in Sources */,
 				A88EB1B81B78C8BA009AB783 /* CATOneCatData.m in Sources */,
+				A86575E91B935C11002FAD41 /* CATNameValidator.m in Sources */,
 				A88EB1821B7621BB009AB783 /* main.m in Sources */,
+				A86575EC1B935C23002FAD41 /* CATCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,6 +17,11 @@
 
 @implementation CATOneCatData
 
++ (instancetype)catWithName:(NSString *)catName andAvatar:(NSString *)catPic {
+    NSDictionary *newCat = @{ @"catName" : catName, @"catImgName" : catPic };
+    return [[CATOneCatData alloc]initWithDictionary:newCat];
+}
+
 - (instancetype)init {
     NSDictionary *noCat = @{ @"catName" : @"Cat without a name", @"catImgName" : @""};
     return [self initWithDictionary:noCat];
@@ -29,5 +34,10 @@
         self.catPic = [dict valueForKey:@"catImgName"];
     }
     return self;
+}
+
+- (NSDictionary *)dictionryFromOneCatData {
+    NSDictionary *catDict = [NSDictionary dictionaryWithObjectsAndKeys:self.catName, @"catName", self.catPic, @"catImgName", nil];
+    return catDict;
 }
 @end

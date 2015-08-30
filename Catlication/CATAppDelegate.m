@@ -7,6 +7,7 @@
 //
 
 #import "CATAppDelegate.h"
+#import "CatTableViewController.h"
 
 @interface CATAppDelegate ()
 
@@ -16,7 +17,6 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [application setStatusBarHidden:YES];
     return YES;
 }
 

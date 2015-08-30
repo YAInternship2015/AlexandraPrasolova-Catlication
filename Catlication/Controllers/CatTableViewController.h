@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CATDataSource.h"
 
-@interface CATTableViewController : UITableViewController
+@interface CATTableViewController : UITableViewController <CATCatsDataManagment>
 
 @end

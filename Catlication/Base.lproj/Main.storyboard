@@ -1,20 +1,146 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8Cx-Pd-zTn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gad-4e-bDZ">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!-->0.0<-->
+        <scene sceneID="vbD-X6-HdN">
+            <objects>
+                <collectionViewController id="UyV-Wi-Zwc" customClass="CATCollectionViewController" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" dataMode="prototypes" id="OeK-qn-rDK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="fJj-1d-LvZ">
+                            <size key="itemSize" width="100" height="100"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="CatCell" id="e7L-Jk-3ez" customClass="CATCollectionViewCell">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6YO-dz-GOi">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="6YO-dz-GOi" firstAttribute="top" secondItem="e7L-Jk-3ez" secondAttribute="top" id="CW6-jh-OET"/>
+                                    <constraint firstItem="6YO-dz-GOi" firstAttribute="top" secondItem="e7L-Jk-3ez" secondAttribute="top" id="Qgv-eo-3YB"/>
+                                    <constraint firstAttribute="trailing" secondItem="6YO-dz-GOi" secondAttribute="trailing" id="gGn-ho-qhR"/>
+                                    <constraint firstAttribute="trailing" secondItem="6YO-dz-GOi" secondAttribute="trailing" id="k2R-4J-nYe"/>
+                                    <constraint firstAttribute="bottom" secondItem="6YO-dz-GOi" secondAttribute="bottom" id="o2r-YP-Suj"/>
+                                    <constraint firstAttribute="bottom" secondItem="6YO-dz-GOi" secondAttribute="bottom" id="r3s-wT-j9u"/>
+                                    <constraint firstItem="6YO-dz-GOi" firstAttribute="leading" secondItem="e7L-Jk-3ez" secondAttribute="leading" id="wL3-UD-idf"/>
+                                    <constraint firstItem="6YO-dz-GOi" firstAttribute="leading" secondItem="e7L-Jk-3ez" secondAttribute="leading" id="wnK-6X-fN8"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="CW6-jh-OET"/>
+                                        <exclude reference="k2R-4J-nYe"/>
+                                        <exclude reference="r3s-wT-j9u"/>
+                                        <exclude reference="wnK-6X-fN8"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outlet property="catPic" destination="6YO-dz-GOi" id="DF5-eV-wyK"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="UyV-Wi-Zwc" id="3q9-WC-GPR"/>
+                            <outlet property="delegate" destination="UyV-Wi-Zwc" id="tZ7-6T-Vxd"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="&gt;0.0&lt;" id="2QF-wg-Yk3">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="14q-IL-gtx">
+                            <connections>
+                                <segue destination="GpI-nS-6ri" kind="show" id="EE4-Fj-Qb7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NXy-8w-K4H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1700" y="308"/>
+        </scene>
+        <!--addCatController-->
+        <scene sceneID="LE4-1F-cYg">
+            <objects>
+                <viewController storyboardIdentifier="addCatController" title="addCatController" id="GpI-nS-6ri" customClass="CATAddCatController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aej-Qh-KxP"/>
+                        <viewControllerLayoutGuide type="bottom" id="ds4-is-JyN"/>
+                    </layoutGuides>
+                    <view key="view" autoresizesSubviews="NO" contentMode="scaleAspectFit" id="kzS-pC-EUI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter new cat's name here" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NGd-uV-tqy">
+                                <rect key="frame" x="16" y="264" width="568" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Z4h-HW-RPg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="250" placeholderIntrinsicHeight="250" image="noavatar" translatesAutoresizingMaskIntoConstraints="NO" id="186-dn-KIR">
+                                <rect key="frame" x="200" y="40" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="05C-yf-P4z"/>
+                                    <constraint firstAttribute="width" constant="200" id="PKa-NY-3Pw"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="186-dn-KIR" firstAttribute="top" secondItem="aej-Qh-KxP" secondAttribute="bottom" constant="40" id="IME-07-kSO"/>
+                            <constraint firstAttribute="centerX" secondItem="186-dn-KIR" secondAttribute="centerX" id="KUY-GC-jYU"/>
+                            <constraint firstItem="186-dn-KIR" firstAttribute="centerX" secondItem="NGd-uV-tqy" secondAttribute="centerX" id="arD-EQ-gug"/>
+                            <constraint firstItem="NGd-uV-tqy" firstAttribute="leading" secondItem="kzS-pC-EUI" secondAttribute="leadingMargin" id="fnd-Yw-rJz"/>
+                            <constraint firstItem="NGd-uV-tqy" firstAttribute="top" secondItem="186-dn-KIR" secondAttribute="bottom" constant="24" id="stn-tf-PxM"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add a cat" id="A0M-11-O6P">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="QQS-Lk-WR0">
+                            <connections>
+                                <segue destination="wxS-Ff-jfB" kind="unwind" unwindAction="unwindToTableViewController:" id="tN6-tR-Y30"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="FDf-BC-mmY">
+                            <connections>
+                                <segue destination="wxS-Ff-jfB" kind="unwind" unwindAction="unwindToTableViewController:" id="BVA-Xu-AVL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="saveButton" destination="FDf-BC-mmY" id="M4S-IY-Xod"/>
+                        <outlet property="textField" destination="NGd-uV-tqy" id="nkr-Ve-ivG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GU3-NB-NdL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="wxS-Ff-jfB" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1915" y="-422"/>
+        </scene>
+        <!--List of cats-->
         <scene sceneID="9HL-Dy-0s0">
             <objects>
                 <tableViewController id="8Cx-Pd-zTn" customClass="CATTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" id="CpS-SU-n59">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" id="CpS-SU-n59">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="cellForCat" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellForCat" id="rfI-vX-VlG" customClass="CATTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="cellForCat" selectionStyle="gray" indentationWidth="10" reuseIdentifier="cellForCat" id="rfI-vX-VlG" customClass="CATTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rfI-vX-VlG" id="1Xn-D2-ylV">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -53,9 +179,66 @@
                             <outlet property="delegate" destination="8Cx-Pd-zTn" id="FIF-uI-kcq"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="List of cats" id="1FB-zJ-9sR">
+                        <barButtonItem key="leftBarButtonItem" title="View on tiles" id="ahg-zF-lKa">
+                            <connections>
+                                <segue destination="UyV-Wi-Zwc" kind="show" id="Jip-em-jO2"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="V90-if-vH5">
+                            <connections>
+                                <segue destination="2HY-D3-mGm" kind="presentation" id="2Q1-Mv-RHH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <keyCommands/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NcB-BI-cMc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1012" y="308"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Hfz-Sp-Q62">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="gad-4e-bDZ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="AGp-rw-aTl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8Cx-Pd-zTn" kind="relationship" relationship="rootViewController" id="Xp3-CC-Rbr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ug2-8L-Vxg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="343" y="308"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="LGV-YI-TFO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2HY-D3-mGm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="u3C-JF-Lgk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="GpI-nS-6ri" kind="relationship" relationship="rootViewController" id="Cre-8I-8lY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D89-aX-Y0y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1103" y="-422"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="noavatar" width="512" height="512"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="EE4-Fj-Qb7"/>
+    </inferredMetricsTieBreakers>
 </document>
