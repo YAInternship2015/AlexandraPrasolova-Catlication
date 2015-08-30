@@ -49,6 +49,7 @@
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    //when one or more cats are selected, add button turnes to trash button
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemTrash
                                                                                           target:self
                                                                                           action:@selector(trashPressed)];
@@ -57,7 +58,7 @@
 
 - (void) tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self.selectedCats removeObject:indexPath]; //cat was deselected, remove it from array of selected cats
-    if ([self.selectedCats count] < 1) {        //all selected cats were deselected
+    if ([self.selectedCats count] < 1) {        //all selected cats were deselected, turn trash button to add button
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addPressed)];
     }
 }
