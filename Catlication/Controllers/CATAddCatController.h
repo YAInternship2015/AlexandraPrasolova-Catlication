@@ -11,6 +11,7 @@
 
 @interface CATAddCatController : UIViewController
 
+#warning этого здесь не должно быть
 @property (nonatomic) CATOneCatData *catEntry;
 
 @end

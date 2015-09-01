@@ -11,14 +11,17 @@
 
 @interface CATDataSource ()
 
+#warning (nonatomic, strong)
 @property (nonatomic,strong) NSMutableArray *catsArray;     //data model - array of dictionaries, one dictionary - data for one cat
 @property (nonatomic, strong) NSString *pathToSourceFile;   //path to file with cats data
+#warning @property (nonatomic, weak) id<CATCatsDataManagment> delegate; - делегат необязательно должен быть вью контроллером
 @property (weak, nonatomic) UIViewController <CATCatsDataManagment> *delegate;
 
 @end
 
 @implementation CATDataSource
 
+#warning dealloc лучше размещать после инитов
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
@@ -28,6 +31,7 @@
                 withDelegate:(UIViewController <CATCatsDataManagment> *)vc {
     self = [super init];
     if (self) {
+#warning эту логику по формированию пути лучше вынести в отдельный метод, а еще лучше - в категорию к NSBundle
         NSBundle *thisApp = [NSBundle mainBundle];
         self.pathToSourceFile = [thisApp pathForResource:fileName ofType:fileType];
         if ([self loadCatsDataFromFile:self.pathToSourceFile] == NO) {
@@ -37,6 +41,8 @@
     }
     self.delegate =  vc;
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+#warning имя нотификейшна стоит вынести в отдельный файл типа CATConstants.h и объявить его там константой, так как это имя используется в нескольких местах. Синтаксис вроде такого
+//    static NSString *const CATDataSourceDataWasChangedNotificationName = @"CATDataSourceDataWasChangedNotification";
     [nc addObserver:self
            selector:@selector(reciveCatSourseFileChangedNotification:)
                name:@"catFileChanged"
@@ -52,6 +58,7 @@
     return nil;
 }
 
+#warning нужен пробел перед {
 - (NSUInteger)numberOfCats{
     return [self.catsArray count];
 }
@@ -64,13 +71,18 @@
             CATOneCatData *oneCatData = [[CATOneCatData alloc] initWithDictionary:cat];
             [self.catsArray addObject:oneCatData];
         }
+#warning постарайтесь отделаться одним return
         return YES;
     }
     return NO;
 }
 
+#warning опечатка в имени метода
 - (void)reciveCatSourseFileChangedNotification:(NSNotification *)notification {
+#warning здесь нужно перевытянуть данные из файла
+#warning можно не проверять имя нотификейшна, этот метод вызывается только при появлении этого конкретного нотификейшна
     if ([[notification name] isEqualToString:@"catFileChanged"]) {
+#warning перед тем, как вызвать метод у делегата, необходимо убедиться, что он действительно реализовал метод из протокола методов respondsToSelector:, иначе можно поймать креш
         [self.delegate catsDataWasChanged];
     }
 }
@@ -96,6 +108,7 @@
 }
 
 - (BOOL)reloadCatsData {
+#warning глупая проверка, она не нужна
     if (self) {
         if ([self loadCatsDataFromFile:self.pathToSourceFile] == NO) {
             NSLog(@"couldn't find data in '%@' file",self.pathToSourceFile);

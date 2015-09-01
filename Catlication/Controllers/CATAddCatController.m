@@ -9,6 +9,7 @@
 #import "CATAddCatController.h"
 #import "CATNameValidator.h"
 
+#warning сохранение модели должно происходить в этом контроллере
 @interface CATAddCatController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *textField;
@@ -18,6 +19,7 @@
 
 @implementation CATAddCatController
 
+#warning старайтесь не оставлять пустых методов, как этот и следующий. Если не добавляете в них какое-то поведение, то удаляйте
 - (void)viewDidLoad {
     [super viewDidLoad];
 }
@@ -34,6 +36,7 @@
         return;
     }
     //save button pressed
+#warning перед init потеряли пробел
     CATNameValidator *validator = [[CATNameValidator alloc]init];
     NSError *err;
     NSString *catName = self.textField.text;

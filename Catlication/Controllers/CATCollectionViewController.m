@@ -24,6 +24,7 @@ static NSString * const reuseIdentifier = @"CatCell";
     self.catsDataSource = [[CATDataSource alloc] initFromFile:@"catsData" ofType:@"plist" withDelegate:self]; //set up model
 }
 
+#warning этот метод можно удалить
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

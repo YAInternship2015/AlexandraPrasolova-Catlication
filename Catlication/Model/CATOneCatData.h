@@ -13,8 +13,10 @@
 @property (nonatomic, strong, readonly) NSString *catName;
 @property (nonatomic, strong, readonly) NSString *catPic;
 
+#warning "and" в имени второго параметра не нужен
 + (instancetype)catWithName:(NSString *)catName andAvatar:(NSString *)catPic;
 - (instancetype)initWithDictionary:(NSDictionary *)dict;//DESIGNATED
+#warning лучше назвать метод dictionaryRepresentation и вынести его в отдельную категорию к CATOneCatData
 - (NSDictionary *)dictionryFromOneCatData;
 
 @end

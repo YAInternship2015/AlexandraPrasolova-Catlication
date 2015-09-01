@@ -10,6 +10,7 @@
 
 @interface CATCollectionViewCell ()
 
+#warning лучше catImageView
 @property (nonatomic, strong) IBOutlet UIImageView *catPic;
 
 @end

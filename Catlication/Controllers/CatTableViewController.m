@@ -13,7 +13,9 @@
 @interface CATTableViewController ()
 
 @property (nonatomic, strong) CATDataSource *catsDataSource;
+#warning тут явно путаница в названии переменной и том, что в ней хранится. Из названия выодит, что в нмассиве лежат модели. По факту, тут лежат индекс пасы. Вообще передавать в датасорс индекс пасы, о которых он и знать не знает - нехорошо. У датасорса есть его массив моделей и индексация по этому массиву. Поэтому ему нужно передавать либо его внутренние индексы, либо сами модели, которые нужно удалить
 @property (nonatomic, strong) NSMutableArray *selectedCats; //array of indexPathes for selected cats
+#warning Вам здесь не нужна сториборда. Все переходы делаются вызовом segue
 @property (nonatomic, strong) UIStoryboard *myStoryboard;
 
 @end
@@ -48,8 +50,10 @@
     return catCell;
 }
 
+#warning пробел после (void) не нужен, справедливо для всех методов
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //when one or more cats are selected, add button turnes to trash button
+#warning добавление каждой кнопки лучше вынести в отдельные методы, чтобы логика создания кнопок не смешивалась с добавлением/удалением индексов
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemTrash
                                                                                           target:self
                                                                                           action:@selector(trashPressed)];
@@ -64,6 +68,7 @@
 }
 
 - (void) catsDataWasChanged {
+#warning не нужно инициировать перезагрузку данных из контроллера. Датасорс сам должен перевытягивать свои данные, а контроллер только обновляет свой UI
     if ([self.catsDataSource reloadCatsData]) {
         [self.tableView reloadData];
     };
@@ -72,6 +77,7 @@
 #pragma mark - Navigation
 
 - (IBAction)unwindToTableViewController:(UIStoryboardSegue *)segue {
+#warning save все же надо делать внутри CATAddCatController, этот контроллер должен только отображать данные
     CATAddCatController *sourceViewContr = [segue sourceViewController];
     CATOneCatData *newCat = sourceViewContr.catEntry;
     if (newCat) {
@@ -81,7 +87,8 @@
 
 #pragma mark - Buttons
 
-- (void)addPressed { 
+- (void)addPressed {
+#warning вместо обращения к сториборде лучше вызвать у контроллера метод performSegueWithIdentifier:sender:
     CATAddCatController *addCatController = [self.myStoryboard instantiateViewControllerWithIdentifier:@"addCatController"];
     [self.navigationController pushViewController:addCatController animated:YES ];
 }
