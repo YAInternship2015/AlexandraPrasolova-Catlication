@@ -9,19 +9,17 @@
 #import "CATTableViewCell.h"
 
 @interface CATTableViewCell ()
-#warning лучше catNameLabel
-@property (nonatomic, strong) IBOutlet UILabel *catName;
-#warning лучше catImageView
-@property (nonatomic, strong) IBOutlet UIImageView *catPic;
+
+@property (nonatomic, strong) IBOutlet UILabel *catNameLabel;
+@property (nonatomic, strong) IBOutlet UIImageView *catImageName;
 
 @end
 
 @implementation CATTableViewCell
 
 - (void)setUpWithModel:(CATOneCatData *)catData {
-#warning лишний сдвиг вправо
-        self.catName.text = catData.catName;
-        self.catPic.image = [UIImage imageNamed:catData.catPic];
+    self.catNameLabel.text = catData.catName;
+    self.catImageName.image = [UIImage imageNamed:catData.catImageName];
 }
 
 @end

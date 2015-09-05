@@ -7,16 +7,13 @@
 //
 
 #import "CATNameValidator.h"
-#warning вместо define лучше просто объявить константу static const NSInteger kMinCatNameLength = 3;
-#define MIN_CAT_NAME_LENGTH 3
 
 @implementation CATNameValidator
 
-- (BOOL)isValidCatName:(NSString *)name Error: (NSError **)error {
-    if ([name length] < MIN_CAT_NAME_LENGTH) {
-#warning Тексты ошибко - это тексты, которые появляются в коде и которык увидит юзер в UI. Их также нужно вынести в файл Localizable.strings, почитайте, что это, в гугл
-        NSString *localizedDescriptionString = [NSString stringWithFormat:@"Name '%@' is too short!",name];
-        NSString *localizedReasonString = [NSString stringWithFormat:@"Cat's name can't be shorter than %d symbols.",MIN_CAT_NAME_LENGTH];
+- (BOOL)isValidCatName:(NSString *)name error: (NSError **)error {
+    if ([name length] < minCatNameLength) {
+        NSString *localizedDescriptionString = [NSString stringWithFormat:NSLocalizedString(@"Name '%@' is too short!",nil),name];
+        NSString *localizedReasonString = [NSString stringWithFormat:NSLocalizedString(@"Cat's name can't be shorter than %d symbols.", nil), minCatNameLength];
         *error = [NSError errorWithDomain:@"CATErrorDomain"
                                      code:1
                                  userInfo:@{

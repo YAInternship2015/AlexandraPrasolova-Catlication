@@ -8,6 +8,7 @@
 
 #import "CATCollectionViewController.h"
 #import "CATCollectionViewCell.h"
+#import "CATDataSource.h"
 
 @interface CATCollectionViewController ()
 
@@ -21,13 +22,7 @@ static NSString * const reuseIdentifier = @"CatCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.catsDataSource = [[CATDataSource alloc] initFromFile:@"catsData" ofType:@"plist" withDelegate:self]; //set up model
-}
-
-#warning этот метод можно удалить
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    self.catsDataSource = [[CATDataSource alloc] initWithDelegate:self]; //set up model
 }
 
 #pragma mark <UICollectionViewDataSource>
@@ -47,9 +42,7 @@ static NSString * const reuseIdentifier = @"CatCell";
 }
 
 - (void)catsDataWasChanged {
-    if ([self.catsDataSource reloadCatsData]) {
-        [self.collectionView reloadData];
-    };
+    [self.collectionView reloadData];    
 }
 
 @end

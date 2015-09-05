@@ -1,0 +1,10 @@
+/* 
+  Localazible.strings
+  Catlication
+
+  Created by Alexandra Prasolova on 9/1/15.
+  Copyright (c) 2015 Alexandra Prasolova. All rights reserved.
+*/
+"Name '%@' is too short!" = "Name %@ is too short!";
+"Cat's name can't be shorter than %d symbols." = "Cat's name can't be shorter than %d symbols.";
+"Cat without a name" = "Cat without a name";
