@@ -8,6 +8,8 @@
 
 #import "CATAddCatController.h"
 #import "CATNameValidator.h"
+#import "CATDataManager.h"
+#import "CATFactory.h"
 
 @interface CATAddCatController ()
 
@@ -18,14 +20,6 @@
 
 @implementation CATAddCatController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -34,10 +28,10 @@
         return;
     }
     //save button pressed
-    CATNameValidator *validator = [[CATNameValidator alloc]init];
+    CATNameValidator *validator = [[CATNameValidator alloc] init];
     NSError *err;
     NSString *catName = self.textField.text;
-    if ([validator isValidCatName:catName Error:&err] == NO) {  //cat's name is not valid
+    if ([validator isValidCatName:catName error:&err] == NO) {  //cat's name is not valid
         NSLog(@"%@ %@",err.localizedDescription, err.localizedFailureReason);
         [[[UIAlertView alloc] initWithTitle:err.localizedDescription
                                     message:err.localizedFailureReason
@@ -46,7 +40,13 @@
                           otherButtonTitles:nil, nil] show];
         return;
     }
-    self.catEntry = [CATOneCatData catWithName:catName andAvatar:@"noavatar.png"];
+    CATOneCatData *catEntry = [CATFactory catWithName:catName avatar:@"noavatar.png"];
+    [self saveCat:catEntry];
 }
 
+- (BOOL)saveCat: (CATOneCatData *)cat {
+    BOOL successfullySaved = NO;
+    [[CATDataManager dataManager]addCat:cat];
+    return successfullySaved;
+}
 @end

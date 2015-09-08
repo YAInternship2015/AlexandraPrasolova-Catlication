@@ -10,16 +10,16 @@
 
 @interface CATTableViewCell ()
 
-@property (nonatomic, strong) IBOutlet UILabel *catName;
-@property (nonatomic, strong) IBOutlet UIImageView *catPic;
+@property (nonatomic, weak) IBOutlet UILabel *catNameLabel;
+@property (nonatomic, weak) IBOutlet UIImageView *catImageName;
 
 @end
 
 @implementation CATTableViewCell
 
 - (void)setUpWithModel:(CATOneCatData *)catData {
-        self.catName.text = catData.catName;
-        self.catPic.image = [UIImage imageNamed:catData.catPic];
+    self.catNameLabel.text = catData.catName;
+    self.catImageName.image = [UIImage imageNamed:catData.catImageName];
 }
 
 @end

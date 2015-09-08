@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "CATOneCatData.h"
 
+static NSString * const reuseIdentifier = @"cellForCat";
+
 @interface CATTableViewCell : UITableViewCell
 
 - (void)setUpWithModel:(CATOneCatData *)catData;

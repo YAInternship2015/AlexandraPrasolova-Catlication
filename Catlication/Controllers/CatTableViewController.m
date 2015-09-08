@@ -7,28 +7,24 @@
 //
 
 #import "CATTableViewController.h"
-#import "CatTableViewCell.h"
+#import "CATTableViewCell.h"
 #import "CATAddCatController.h"
+#import "CATDataSource.h"
+#import "CATDataManager.h"
 
 @interface CATTableViewController ()
 
 @property (nonatomic, strong) CATDataSource *catsDataSource;
-@property (nonatomic, strong) NSMutableArray *selectedCats; //array of indexPathes for selected cats
-@property (nonatomic, strong) UIStoryboard *myStoryboard;
+
+@property (nonatomic, strong) NSMutableArray *selectedCats; //array of  selected cats
 
 @end
 
 @implementation CATTableViewController
 
-- (instancetype) initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
-    self.myStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    return self;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.catsDataSource = [[CATDataSource alloc] initFromFile:@"catsData" ofType:@"plist" withDelegate:self]; //set up model
+    self.catsDataSource = [[CATDataSource alloc] initWithDelegate:self]; //set up model
     self.selectedCats = [NSMutableArray array]; //no cats are selected yet
 }
 
@@ -43,55 +39,50 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CATTableViewCell *catCell = [tableView dequeueReusableCellWithIdentifier:@"cellForCat" forIndexPath:indexPath];
+    CATTableViewCell *catCell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
     [catCell setUpWithModel:[self.catsDataSource catAtIndex:indexPath.row]];
     return catCell;
 }
 
-- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //when one or more cats are selected, add button turnes to trash button
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemTrash
-                                                                                          target:self
-                                                                                          action:@selector(trashPressed)];
-    [self.selectedCats addObject:indexPath];
+    [self addTrashButton];
+    [self.selectedCats addObject:[self.catsDataSource catAtIndex:indexPath.row]];
 }
 
-- (void) tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self.selectedCats removeObject:indexPath]; //cat was deselected, remove it from array of selected cats
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self.selectedCats removeObject:[self.catsDataSource catAtIndex:indexPath.row]]; //cat was deselected, remove it from array of selected cats
     if ([self.selectedCats count] < 1) {        //all selected cats were deselected, turn trash button to add button
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addPressed)];
+        [self addAddButton];
     }
 }
 
-- (void) catsDataWasChanged {
-    if ([self.catsDataSource reloadCatsData]) {
-        [self.tableView reloadData];
-    };
-}
-
-#pragma mark - Navigation
-
-- (IBAction)unwindToTableViewController:(UIStoryboardSegue *)segue {
-    CATAddCatController *sourceViewContr = [segue sourceViewController];
-    CATOneCatData *newCat = sourceViewContr.catEntry;
-    if (newCat) {
-        [self.catsDataSource saveCat:newCat];
-    }
+- (void)catsDataWasChanged {
+    [self.tableView reloadData];
 }
 
 #pragma mark - Buttons
 
-- (void)addPressed { 
-    CATAddCatController *addCatController = [self.myStoryboard instantiateViewControllerWithIdentifier:@"addCatController"];
-    [self.navigationController pushViewController:addCatController animated:YES ];
-}
-
-- (void)trashPressed {                      //delete all selected cats
-    [self.catsDataSource deleteCatsAtIndexes:self.selectedCats];
-    [self.selectedCats removeAllObjects];   //all selected cats were deleted, no cats are selected now
+- (void)addAddButton {
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                                                           target:self
-                                                                                          action:@selector(addPressed)];
+                                                                                          action:@selector(addButtonPressed)];
+}
+
+- (void)addTrashButton {
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemTrash
+                                                                                          target:self
+                                                                                          action:@selector(trashButtonPressed)];
+}
+
+- (void)addButtonPressed {
+    [self performSegueWithIdentifier:@"toAddCatNavigationController" sender:self];
+}
+
+- (void)trashButtonPressed {                      //delete all selected cats
+    [[CATDataManager dataManager]deleteCatsAtIndexes:self.selectedCats];
+    [self.selectedCats removeAllObjects];   //all selected cats were deleted, no cats are selected now
+    [self addAddButton];
 }
 
 @end

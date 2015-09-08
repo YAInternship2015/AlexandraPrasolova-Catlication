@@ -1,0 +1,21 @@
+
+/* Class = "UINavigationItem"; title = "List of cats"; ObjectID = "1FB-zJ-9sR"; */
+"1FB-zJ-9sR.title" = "List of cats";
+
+/* Class = "UINavigationItem"; title = ">0.0<"; ObjectID = "2QF-wg-Yk3"; */
+"2QF-wg-Yk3.title" = ">0.0<";
+
+/* Class = "UINavigationItem"; title = "Add a cat"; ObjectID = "A0M-11-O6P"; */
+"A0M-11-O6P.title" = "Add a cat";
+
+/* Class = "UIViewController"; title = "addCatController"; ObjectID = "GpI-nS-6ri"; */
+"GpI-nS-6ri.title" = "addCatController";
+
+/* Class = "UITextField"; placeholder = "Enter new cat's name here"; ObjectID = "NGd-uV-tqy"; */
+"NGd-uV-tqy.placeholder" = "Enter new cat's name here";
+
+/* Class = "UIBarButtonItem"; title = "View on tiles"; ObjectID = "ahg-zF-lKa"; */
+"ahg-zF-lKa.title" = "View on tiles";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "eUO-kl-p1B"; */
+"eUO-kl-p1B.text" = "Label";

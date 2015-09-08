@@ -6,15 +6,10 @@
 //  Copyright (c) 2015 Alexandra Prasolova. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @interface CATOneCatData : NSObject 
 
 @property (nonatomic, strong, readonly) NSString *catName;
-@property (nonatomic, strong, readonly) NSString *catPic;
+@property (nonatomic, strong, readonly) NSString *catImageName;
 
-+ (instancetype)catWithName:(NSString *)catName andAvatar:(NSString *)catPic;
-- (instancetype)initWithDictionary:(NSDictionary *)dict;//DESIGNATED
-- (NSDictionary *)dictionryFromOneCatData;
-
+- (instancetype)initWithDictionary:(NSDictionary *)dict;    //DESIGNATED
 @end

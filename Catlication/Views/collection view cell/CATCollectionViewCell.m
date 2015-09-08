@@ -10,14 +10,14 @@
 
 @interface CATCollectionViewCell ()
 
-@property (nonatomic, strong) IBOutlet UIImageView *catPic;
+@property (nonatomic, weak) IBOutlet UIImageView *catImageView;
 
 @end
 
 @implementation CATCollectionViewCell
 
 - (void)setUpWithModel:(CATOneCatData *)catData {
-    self.catPic.image = [UIImage imageNamed:catData.catPic];
+    self.catImageView.image = [UIImage imageNamed:catData.catImageName];
 }
 
 @end

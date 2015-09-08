@@ -6,10 +6,8 @@
 //  Copyright (c) 2015 Alexandra Prasolova. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 @interface CATNameValidator : NSObject
 
-- (BOOL)isValidCatName:(NSString *)name Error: (NSError **)error;
+- (BOOL)isValidCatName:(NSString *)name error: (NSError **)error;
 
 @end

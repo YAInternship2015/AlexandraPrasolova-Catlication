@@ -7,41 +7,38 @@
 //
 
 #import "CATDataSource.h"
-#import "CATOneCatData.h"
+#import "NSBundle+PathToCats.h"
 
 @interface CATDataSource ()
 
-@property (nonatomic,strong) NSMutableArray *catsArray;     //data model - array of dictionaries, one dictionary - data for one cat
-@property (nonatomic, strong) NSString *pathToSourceFile;   //path to file with cats data
-@property (weak, nonatomic) UIViewController <CATCatsDataManagment> *delegate;
+@property (nonatomic, strong) NSMutableArray *catsArray;    //data model - array of dictionaries, one dictionary - data for one cat
+@property (nonatomic, strong) NSString *pathToCatsSourceFile;   //path to file with cats data
+@property (nonatomic, weak) id <CATCatsDataManagment> delegate;
 
 @end
 
 @implementation CATDataSource
 
-- (void)dealloc{
-    [[NSNotificationCenter defaultCenter]removeObserver:self];
-}
-
-- (instancetype)initFromFile:(NSString *)fileName   //DESIGNATED
-                      ofType:(NSString *)fileType
-                withDelegate:(UIViewController <CATCatsDataManagment> *)vc {
+- (instancetype)initWithDelegate:(UIViewController <CATCatsDataManagment> *)vc {
     self = [super init];
     if (self) {
-        NSBundle *thisApp = [NSBundle mainBundle];
-        self.pathToSourceFile = [thisApp pathForResource:fileName ofType:fileType];
-        if ([self loadCatsDataFromFile:self.pathToSourceFile] == NO) {
-            NSLog(@"couldn't find data in '%@' file",self.pathToSourceFile);
+        self.pathToCatsSourceFile = [NSBundle pathToCatsFile];
+        if ([self loadCatsDataFromFile:self.pathToCatsSourceFile] == NO) {
+            NSLog(@"couldn't find data in '%@' file",self.pathToCatsSourceFile);
             return nil;
         }
     }
     self.delegate =  vc;
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     [nc addObserver:self
-           selector:@selector(reciveCatSourseFileChangedNotification:)
-               name:@"catFileChanged"
+           selector:@selector(receiveCatSourseFileChangedNotification:)
+               name:CATDataSourceDataWasChangedNotificationName
              object:nil];
     return self;
+}
+
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 
 - (CATOneCatData *)catAtIndex:(NSUInteger)i {
@@ -52,56 +49,36 @@
     return nil;
 }
 
-- (NSUInteger)numberOfCats{
+- (NSUInteger)numberOfCats {
     return [self.catsArray count];
 }
 
 - (BOOL)loadCatsDataFromFile:(NSString *)pathToCatsData {
+    BOOL didLoad = NO;
     NSArray *rawCatsData = [NSArray arrayWithContentsOfFile:pathToCatsData];
     if (rawCatsData) {
         self.catsArray = [NSMutableArray array];
             for (NSDictionary *cat in rawCatsData) {
             CATOneCatData *oneCatData = [[CATOneCatData alloc] initWithDictionary:cat];
             [self.catsArray addObject:oneCatData];
-        }
-        return YES;
+            }
+        didLoad = YES;
     }
-    return NO;
+    return didLoad;
 }
 
-- (void)reciveCatSourseFileChangedNotification:(NSNotification *)notification {
-    if ([[notification name] isEqualToString:@"catFileChanged"]) {
+- (void)receiveCatSourseFileChangedNotification:(NSNotification *)notification {
+    [self reloadCatsData];
+    if ([self.delegate respondsToSelector:@selector(catsDataWasChanged)]) {
         [self.delegate catsDataWasChanged];
     }
 }
 
-- (void)saveCat:(CATOneCatData *)newCat {
-    NSMutableArray *catsData = [NSMutableArray arrayWithContentsOfFile:self.pathToSourceFile];
-    [catsData addObject:[newCat dictionryFromOneCatData]];
-    [catsData writeToFile:self.pathToSourceFile atomically:YES];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"catFileChanged" object:nil];
-}
-
-- (void)deleteCat:(CATOneCatData *)catToDelete {
-    NSMutableArray *catsData = [NSMutableArray arrayWithContentsOfFile:self.pathToSourceFile];
-    [catsData removeObject:[catToDelete dictionryFromOneCatData]];
-    [catsData writeToFile:self.pathToSourceFile atomically:YES];
-}
-
-- (void)deleteCatsAtIndexes:(NSArray *)catsToDelete {
-    for (NSIndexPath *catIndex in catsToDelete) {
-        [self deleteCat:self.catsArray[catIndex.row]];
-    }
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"catFileChanged" object:nil];
-}
-
 - (BOOL)reloadCatsData {
-    if (self) {
-        if ([self loadCatsDataFromFile:self.pathToSourceFile] == NO) {
-            NSLog(@"couldn't find data in '%@' file",self.pathToSourceFile);
-            return NO;
-        }
+    BOOL didReaload = NO;
+    if ((didReaload = [self loadCatsDataFromFile:self.pathToCatsSourceFile]) == NO) {
+        NSLog(@"couldn't find data in '%@' file",self.pathToCatsSourceFile);
     }
-    return YES;
+    return didReaload;
 }
 @end

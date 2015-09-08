@@ -6,8 +6,7 @@
 //  Copyright (c) 2015 Alexandra Prasolova. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "CATDataSource.h"
+@protocol CATCatsDataManagment;
 
 @interface CATTableViewController : UITableViewController <CATCatsDataManagment>
 
