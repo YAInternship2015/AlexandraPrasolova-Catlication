@@ -18,9 +18,6 @@
 
 @implementation CATCollectionViewController
 
-#warning я бы это вынес в саму ячейку
-static NSString * const reuseIdentifier = @"CatCell";
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.catsDataSource = [[CATDataSource alloc] initWithDelegate:self]; //set up model

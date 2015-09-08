@@ -10,7 +10,7 @@
 
 @implementation CATOneCatData (Dictionary)
 
-- (NSDictionary *)dictionryRepresentation {
+- (NSDictionary *)dictionaryRepresentation {
     NSDictionary *catDict = @{ @"catName" : self.catName, @"catImgName" : self.catImageName };
     return catDict;
 }

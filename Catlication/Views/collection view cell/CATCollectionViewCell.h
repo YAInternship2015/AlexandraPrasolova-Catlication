@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "CATOneCatData.h"
 
+static NSString * const reuseIdentifier = @"CatCell";
+
 @interface CATCollectionViewCell : UICollectionViewCell
 
 - (void)setUpWithModel:(CATOneCatData *)catData;

@@ -10,8 +10,7 @@
 
 @interface CATCollectionViewCell ()
 
-#warning (nonatimic, weak) - этой UIImageView владеет сама ячейка, когда "умрет" ячейка, "умрет" и UIImageView
-@property (nonatomic, strong) IBOutlet UIImageView *catImageView;
+@property (nonatomic, weak) IBOutlet UIImageView *catImageView;
 
 @end
 

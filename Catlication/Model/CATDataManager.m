@@ -10,24 +10,17 @@
 #import "CATDataSource.h"
 #import "NSBundle+PathToCats.h"
 
-static CATDataManager *dataMAnager = nil;
-
-@implementation CATDataManager //this class purpose is to manage all CATDataSourse instances. It's supposed to be a singleton - ONE INSTANCE TO RULE THEM ALL 
-
-#warning ONE INSTANCE TO RULE THEM ALL - Noooooooo! Синглтонов здесь не должно быть. Вообще постарайтесь их использовать только в крайних случаях, когда без синглтона не обойтись
+@implementation CATDataManager //this class purpose is to manage all CATDataSourse instances.
 
 + (instancetype)dataManager {
-    if (!dataMAnager) {
-        dataMAnager = [[CATDataManager alloc]init];
-    }
-    return dataMAnager;
+    return [[CATDataManager alloc]init];
 }
 
 - (BOOL)addCat:(CATOneCatData *)newCat {
     NSString *pathToCatsSourceFile = [NSBundle pathToCatsFile];
     NSMutableArray *catsData = [NSMutableArray arrayWithContentsOfFile:pathToCatsSourceFile];
     
-    [catsData addObject:[newCat dictionryRepresentation]];
+    [catsData addObject:[newCat dictionaryRepresentation]];
     [catsData writeToFile:pathToCatsSourceFile atomically:YES];
     [[NSNotificationCenter defaultCenter] postNotificationName:CATDataSourceDataWasChangedNotificationName object:nil];
     return YES;
@@ -36,7 +29,7 @@ static CATDataManager *dataMAnager = nil;
 - (BOOL)deleteCat:(CATOneCatData *)catToDelete {
     NSString *pathToCatsSourceFile = [NSBundle pathToCatsFile];
     NSMutableArray *catsData = [NSMutableArray arrayWithContentsOfFile:pathToCatsSourceFile];
-        [catsData removeObject:[catToDelete dictionryRepresentation]];
+        [catsData removeObject:[catToDelete dictionaryRepresentation]];
         [catsData writeToFile:pathToCatsSourceFile atomically:YES];
     
     return YES;

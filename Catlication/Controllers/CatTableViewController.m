@@ -39,8 +39,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-#warning @"cellForCat" можно вынести в константы в саму ячейку
-    CATTableViewCell *catCell = [tableView dequeueReusableCellWithIdentifier:@"cellForCat" forIndexPath:indexPath];
+    CATTableViewCell *catCell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
     [catCell setUpWithModel:[self.catsDataSource catAtIndex:indexPath.row]];
     return catCell;
 }
@@ -67,21 +66,20 @@
 - (void)addAddButton {
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                                                           target:self
-                                                                                          action:@selector(addPressed)];
+                                                                                          action:@selector(addButtonPressed)];
 }
 
 - (void)addTrashButton {
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemTrash
                                                                                           target:self
-                                                                                          action:@selector(trashPressed)];
+                                                                                          action:@selector(trashButtonPressed)];
 }
 
-#warning лучше addButtonPressed
-- (void)addPressed {
+- (void)addButtonPressed {
     [self performSegueWithIdentifier:@"toAddCatNavigationController" sender:self];
 }
 
-- (void)trashPressed {                      //delete all selected cats
+- (void)trashButtonPressed {                      //delete all selected cats
     [[CATDataManager dataManager]deleteCatsAtIndexes:self.selectedCats];
     [self.selectedCats removeAllObjects];   //all selected cats were deleted, no cats are selected now
     [self addAddButton];
