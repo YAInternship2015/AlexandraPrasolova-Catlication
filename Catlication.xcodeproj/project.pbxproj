@@ -495,7 +495,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "/Users/Alexandra/Documents/xcode/yalantis/Catlication/Catlication/Catlication-Prefix.pch";
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/Catlication/Catlication-Prefix.pch";
 				INFOPLIST_FILE = Catlication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -507,7 +507,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "/Users/Alexandra/Documents/xcode/yalantis/Catlication/Catlication/Catlication-Prefix.pch";
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/Catlication/Catlication-Prefix.pch";
 				INFOPLIST_FILE = Catlication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

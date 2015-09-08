@@ -13,6 +13,7 @@
 
 @property (nonatomic, strong) NSMutableArray *catsArray;    //data model - array of dictionaries, one dictionary - data for one cat
 @property (nonatomic, strong) NSString *pathToCatsSourceFile;   //path to file with cats data
+#warning (nonatomic, weak)
 @property (weak, nonatomic) id <CATCatsDataManagment> delegate;
 
 @end

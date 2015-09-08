@@ -39,6 +39,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+#warning @"cellForCat" можно вынести в константы в саму ячейку
     CATTableViewCell *catCell = [tableView dequeueReusableCellWithIdentifier:@"cellForCat" forIndexPath:indexPath];
     [catCell setUpWithModel:[self.catsDataSource catAtIndex:indexPath.row]];
     return catCell;
@@ -75,6 +76,7 @@
                                                                                           action:@selector(trashPressed)];
 }
 
+#warning лучше addButtonPressed
 - (void)addPressed {
     [self performSegueWithIdentifier:@"toAddCatNavigationController" sender:self];
 }

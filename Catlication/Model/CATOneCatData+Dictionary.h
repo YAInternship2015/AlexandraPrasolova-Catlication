@@ -10,6 +10,7 @@
 
 @interface CATOneCatData (Dictionary)
 
+#warning опечатка в имени
 - (NSDictionary *)dictionryRepresentation;
 
 @end

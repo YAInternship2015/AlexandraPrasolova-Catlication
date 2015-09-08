@@ -10,6 +10,7 @@
 
 @interface CATTableViewCell ()
 
+#warning все аутлеты - weak
 @property (nonatomic, strong) IBOutlet UILabel *catNameLabel;
 @property (nonatomic, strong) IBOutlet UIImageView *catImageName;
 

@@ -18,6 +18,7 @@
 
 @implementation CATCollectionViewController
 
+#warning я бы это вынес в саму ячейку
 static NSString * const reuseIdentifier = @"CatCell";
 
 - (void)viewDidLoad {
